@@ -13,7 +13,10 @@
                 x:DataType="viewmodels:LoginViewModel"
                 Shell.FlyoutBehavior="Disabled"
                 Shell.NavBarIsVisible="False"
-                Shell.TabBarIsVisible="False">
+                Shell.TabBarIsVisible="False"
+                BackgroundColor="#191919"
+                Shell.BackgroundColor="#191919"
+                Shell.ForegroundColor="White">
     <ContentPage.Title>
         <OnPlatform x:TypeArguments="x:String">
             <On Platform="iOS, UWP, WinRT, WinPhone" Value="eShop on Containers" />
@@ -135,7 +138,7 @@
             <!-- INFO -->
             <Label
               Grid.Row="1"
-              Text="ARE YOU REGISTERED?"
+              Text="GİRİŞ YAPIN"
               Style="{StaticResource TitleLabelStyle}"/>
             <!-- LOGIN FORM -->
             <StackLayout   
@@ -192,19 +195,34 @@
 				<Label 
 					Text="{Binding Password.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
 					Style="{StaticResource ValidationErrorLabelStyle}" />
-            </StackLayout>
+                    <Label HorizontalOptions="Center" TextColor="Gray">Şifremi Unuttum</Label>
+                    <Label TextColor="White">-------------------------------------------------------</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="20">Hemen Üye Ol</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="9" >Mediamart.com.tr üyesi olarak tüm kapmanyalarımızdan</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,-7">haberdar olur, üyelere özel indirim fırsatlarımızdan</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,0">faydalanabilirsin</Label>
+                    <Button CornerRadius="10" VerticalOptions="Center" Text="Hemen Üye Ol" BackgroundColor="Green"/>
+                    <Label TextColor="White">-------------------------------------------------------</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="20">CLUB Kartınızı Kaydedin</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="9" >Mediamart CLUB'a mağazalarımızdan üye olduysanız, şifre</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,-7">belirleyerek CLUB avantajlarınızı we sitemiz de</Label>
+                    <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,0">kullanabilirsiniz</Label>
+                    <Button CornerRadius="10" VerticalOptions="Center" Text="CLUB Kartınızı Kaydedin" BackgroundColor="Red"/>
+                    <Label TextColor="White">-------------------------------------------------------</Label>
+                </StackLayout>
             <Frame CornerRadius="16" HasShadow="False" Padding="0" IsClippedToBounds="True"
                    HorizontalOptions="Center"
                    Grid.Row="2" >
                 
             </Frame>
+            
             <!-- LOGIN BUTTON -->
             <Grid
                 BackgroundColor="Black"
-                Grid.Row="4"
                 Padding="0"
                 ColumnSpacing="0"
                 RowSpacing="0"
+                Grid.Row="4"
                 >
                 <Label
                   Text="GİRİŞ"
@@ -216,7 +234,8 @@
                 </Grid.GestureRecognizers>
             </Grid>
         </Grid>
-        <!-- AUTH -->
+            
+            <!-- AUTH -->
         <Grid
           ColumnSpacing="0"
           RowSpacing="0"
@@ -231,6 +250,7 @@
                 <ColumnDefinition Width="64" />
             </Grid.ColumnDefinitions>
             <!-- BANNER -->
+            
             <Image
                 x:Name="Banner"
                 Grid.Row="0"
@@ -316,5 +336,6 @@
             </ActivityIndicator.WidthRequest>
         </ActivityIndicator>
     </Grid>
+        
     </Frame>
 </ContentPage>
