@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eShopOnContainers.Core.Views.telefonbir1"
+              Title="Ürün Özellikleri"
+             Shell.BackgroundColor="#191919"
+             Shell.ForegroundColor="White"
+             BackgroundColor="#191919">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="telefon1.jpeg"/>
+                <Button HorizontalOptions="Center" Text="Sepete Ekle" WidthRequest="380" CornerRadius="20" BackgroundColor="Green"/>
+                <Label Margin="40,5" TextColor="White" TextDecorations="Underline">Stoktan Gönderi</Label>
+                <Label Margin="40,5" TextColor="White" TextDecorations="Underline">Mağaza Stok Durumu</Label>
+                <Button Margin="0,5" CornerRadius="20" HorizontalOptions="Center" WidthRequest="380" BackgroundColor="Black" Text="Mağazadan Teslim Al" HeightRequest="40"></Button>
+                <Grid Grid.Row="1" RowSpacing="20" Margin="30,0,0,30" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Sizin İçin Seçtiklerimiz" TextColor="White" FontSize="20"/>
+                    <Label Text="-------------------------------------" TextColor="Red" FontSize="14" VerticalOptions="Center" Opacity="0.5" HorizontalOptions="End" Margin="0,0,30,0"/>
+                    <ScrollView Orientation="Horizontal" Grid.Row="1" VerticalOptions="Start" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+                        <StackLayout BindableLayout.ItemsSource="{Binding TrendsList}" Orientation="Horizontal" Spacing="20" VerticalOptions="Start">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout VerticalOptions="Start">
+                                        <Frame Padding="0" HasShadow="False"  HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
+                                            <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                        </Frame>
+                                        <Label Text="{Binding Name}" TextColor="White" FontSize="15" />
+                                        <Label Text="{Binding Price}" Margin="0,-7,0,0" TextColor="White" FontSize="12"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -14,8 +14,8 @@
                 </Frame>
                 <Label Margin="10,10" FontSize="17" TextColor="White">Telvizyonlar</Label>
                 <Label Margin="20,1" TextColor="White">- Tüm Televizyonlar</Label>
-                <ImageButton Source="tv1.jpeg" Margin="5"/>
-                <ImageButton Source="tv2.jpeg" Margin="5"/>
+                <ImageButton Clicked="telefonbir" Source="tv1.jpeg" Margin="5"/>
+                <ImageButton Clicked="telefoniki" Source="tv2.jpeg" Margin="5"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

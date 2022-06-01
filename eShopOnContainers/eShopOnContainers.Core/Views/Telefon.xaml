@@ -15,8 +15,8 @@
                 </Frame>
                 <Label Margin="10,10" FontSize="17" TextColor="White">Telefonlar</Label>
                 <Label Margin="20,1" TextColor="White">- Tüm Telefonlar</Label>
-                <ImageButton  Source="telefon1.jpeg" Margin="5"/>
-                <ImageButton  Source="telefon2.jpeg" Margin="5"/>
+                <ImageButton Clicked="telefonbir" Source="telefon1.jpeg" Margin="5"/>
+                <ImageButton Clicked="telefoniki" Source="telefon2.jpeg" Margin="5"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -15,8 +15,8 @@
                 </Frame>
                 <Label Margin="10,10" FontSize="17" TextColor="White">Beyaz Eşyalar</Label>
                 <Label Margin="20,1" TextColor="White">- Tüm Beyaz Eşyalar</Label>
-                <ImageButton Source="beyaz1.jpeg" Margin="5"/>
-                <ImageButton Source="beyaz2.jpeg" Margin="5"/>
+                <ImageButton Clicked="telefonbir" Source="beyaz1.jpeg" Margin="5"/>
+                <ImageButton Clicked="telefoniki" Source="beyaz2.jpeg" Margin="5"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

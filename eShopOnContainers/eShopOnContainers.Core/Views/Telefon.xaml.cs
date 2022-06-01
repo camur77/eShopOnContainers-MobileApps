@@ -16,5 +16,13 @@ namespace eShopOnContainers.Core.Views
         {
             InitializeComponent();
         }
+        private async void telefonbir(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new telefonbir1());
+        }
+        private async void telefoniki(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new telefoniki2());
+        }
     }
 }
