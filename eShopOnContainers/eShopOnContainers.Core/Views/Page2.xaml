@@ -9,6 +9,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <Frame  BackgroundColor="#191919" BorderColor="Red" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="18" WidthRequest="320">
+                    <SearchBar VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" PlaceholderColor="White"  Placeholder="Ürün arayın" BackgroundColor="#191919">
+                    </SearchBar>
+                </Frame>
                 <Button Margin="10,20" BackgroundColor="Red" Text="Tüm Kampanyalar" FontSize="18" HeightRequest="60"/>
                 <Button TextColor="Black" FontSize="18" Margin="10,-20" BackgroundColor="White" Text="CLUB Kampanyaları" HeightRequest="60"/>
                 <ImageButton Source="resim1.png"  HorizontalOptions="Center" VerticalOptions="Center" Margin="0,30" WidthRequest="390"/>

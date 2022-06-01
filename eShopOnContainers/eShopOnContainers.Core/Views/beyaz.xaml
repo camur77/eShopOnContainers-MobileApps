@@ -9,6 +9,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                <Frame  BackgroundColor="#191919" BorderColor="Red" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="18" WidthRequest="320">
+                    <SearchBar VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" PlaceholderColor="White"  Placeholder="Ürün arayın" BackgroundColor="#191919">
+                    </SearchBar>
+                </Frame>
                 <Label Margin="10,10" FontSize="17" TextColor="White">Beyaz Eşyalar</Label>
                 <Label Margin="20,1" TextColor="White">- Tüm Beyaz Eşyalar</Label>
                 <ImageButton Source="beyaz1.jpeg" Margin="5"/>
