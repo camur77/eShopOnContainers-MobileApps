@@ -36,6 +36,6 @@
         <ShellContent Title="Urunler" Route="Profile" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:itemspage}" />
         <ShellContent Title="Sipariş Takibi" Route="siparistakip" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:siparistakip}" />
         <ShellContent Title="Sepet" />
-        <ShellContent Title="Favorilerim" />
+        <ShellContent Title="Favoriler" Route="Profile" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:Favoriler}"  />
     </TabBar>
 </Shell>
