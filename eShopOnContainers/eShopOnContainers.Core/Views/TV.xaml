@@ -4,7 +4,8 @@
              x:Class="eShopOnContainers.Core.Views.TV"
              Shell.BackgroundColor="#191919"
              Shell.ForegroundColor="White"
-             BackgroundColor="#191919">
+             BackgroundColor="#191919"
+              Shell.TitleColor="White">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>

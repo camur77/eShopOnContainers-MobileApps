@@ -5,7 +5,8 @@
              Title="Favoriler"
              BackgroundColor="#191919"
              Shell.BackgroundColor="#191919"
-             Shell.ForegroundColor="White">
+             Shell.ForegroundColor="White"
+              Shell.TitleColor="White">
 
     <ContentPage.Content>
         <ScrollView>

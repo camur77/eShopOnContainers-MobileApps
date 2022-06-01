@@ -5,11 +5,12 @@
              Title="Ürün Özellikleri"
              Shell.BackgroundColor="#191919"
              Shell.ForegroundColor="White"
-             BackgroundColor="#191919">
+             BackgroundColor="#191919"
+              Shell.TitleColor="White">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Image Source="telefon1.jpeg"/>
+                <Image Source="telefon2.jpeg"/>
                 <Button HorizontalOptions="Center" Text="Sepete Ekle" WidthRequest="380" CornerRadius="20" BackgroundColor="Green"/>
                 <Label Margin="40,5" TextColor="White" TextDecorations="Underline">Stoktan Gönderi</Label>
                 <Label Margin="40,5" TextColor="White" TextDecorations="Underline">Mağaza Stok Durumu</Label>

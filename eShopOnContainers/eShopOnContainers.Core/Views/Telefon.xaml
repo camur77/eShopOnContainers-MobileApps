@@ -5,7 +5,8 @@
               BackgroundColor="#191919"
              Title="Telefonlar"
              Shell.BackgroundColor="#191919"
-             Shell.ForegroundColor="White">
+             Shell.ForegroundColor="White"
+              Shell.TitleColor="White">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>

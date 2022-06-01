@@ -35,7 +35,7 @@
         <ShellContent Title="Anasayfa" Route="Catalog" Icon="{StaticResource CatalogIconImageSource}" ContentTemplate="{DataTemplate views:Anasayfa}" />
         <ShellContent Title="Urunler" Route="Profile" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:itemspage}" />
         <ShellContent Title="Sipariş Takibi" Route="siparistakip" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:siparistakip}" />
-        <ShellContent Title="Sepet" />
+        <ShellContent Title="Sepet"  Route="siparistakip" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:sepet}" />
         <ShellContent Title="Favoriler" Route="Profile" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:Favoriler}"  />
     </TabBar>
 </Shell>

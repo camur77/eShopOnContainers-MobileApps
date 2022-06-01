@@ -4,7 +4,8 @@
              x:Class="eShopOnContainers.Core.Views.siparistakip"
              Shell.BackgroundColor="#191919"
              Shell.ForegroundColor="White"
-             BackgroundColor="#191919">
+             BackgroundColor="#191919"
+              Shell.TitleColor="White">
 
     <Shell.TitleView >
         <Label HorizontalOptions="Start" VerticalOptions="Center" Margin="10,12" TextColor="White" FontSize="20">Sipariş Takip</Label>
