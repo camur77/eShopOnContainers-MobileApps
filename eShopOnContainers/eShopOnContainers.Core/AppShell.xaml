@@ -33,7 +33,7 @@
 
     <TabBar Route="Main">
         <ShellContent Title="Anasayfa" Route="Catalog" Icon="{StaticResource CatalogIconImageSource}" ContentTemplate="{DataTemplate views:Anasayfa}" />
-        <ShellContent Title="Urunler" Route="Profile" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:ProfileView}" />
+        <ShellContent Title="Urunler" Route="Profile" Icon="{StaticResource ProfileIconImageSource}" ContentTemplate="{DataTemplate views:itemspage}" />
         <ShellContent Title="Sepet"  />
         <ShellContent Title="Sipariş Takibi" />
         <ShellContent Title="Favorilerim" />
