@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace eShopOnContainers.Core.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Favoriler : ContentView
+    public partial class Favoriler : ContentPage
     {
         public Favoriler()
         {
