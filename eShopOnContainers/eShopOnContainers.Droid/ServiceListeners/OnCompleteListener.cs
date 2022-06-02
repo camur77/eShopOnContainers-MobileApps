@@ -35,6 +35,8 @@ namespace eShopOnContainers.Droid.ServiceListeners
                     user.Id = doc.Id;
                     user.FirstName = doc.GetString("FirstName");
                     user.LastName = doc.GetString("LastName");
+                    _tcs.TrySetResult(user);
+                    return;
                 }
             }
             //something wen wrong
