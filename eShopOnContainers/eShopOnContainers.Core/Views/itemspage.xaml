@@ -7,7 +7,6 @@
              Shell.ForegroundColor="White"
              BackgroundColor="#191919"
              Shell.TitleColor="White"
-              Shell.TitleColor="White"
              >
     
     <ContentPage.Content>
