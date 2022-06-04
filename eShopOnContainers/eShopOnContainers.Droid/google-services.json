@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "937625568185",
+    "project_id": "oop2-979e0",
+    "storage_bucket": "oop2-979e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937625568185:android:e81e8a89ac46daa8f3ac68",
+        "android_client_info": {
+          "package_name": "com.lalorosas.eShopOnContainers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937625568185-n7e9l1cqj3m2f8j1t4sr8iu24q0pkaqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYL8aFmI1-8ovdleUpy-SNR5H53arIa4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937625568185-n7e9l1cqj3m2f8j1t4sr8iu24q0pkaqm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
