@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Dependencies\Auth.cs" />
     <Compile Include="Effects\EntryLineColorEffect.cs" />
     <Compile Include="Extensions\ViewExtensions.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
