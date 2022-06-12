@@ -25,7 +25,7 @@ namespace eShopOnContainers
 
             InitApp();
 
-            MainPage = new Girisekrani ();
+            MainPage = new Anasayfa ();
         }
 
         private void InitApp()

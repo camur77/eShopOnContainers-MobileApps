@@ -9,12 +9,16 @@ using Xamarin.Forms;
 using System.Timers;
 using Xamarin.Forms.Xaml;
 using eShopOnContainers.Core.ViewModels.Helpers;
+using Firebase.Database;
 
 namespace eShopOnContainers.Core.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Anasayfa : ContentPage
     {
+        public ObservableCollection<MyDatabaseRecord> DatabaseItemss { get; set; } = new ObservableCollection<MyDatabaseRecord>();
+
+        private readonly FirebaseClient firebaseClient = new FirebaseClient("https://projeoop-default-rtdb.firebaseio.com");
         public class UserInformation
         {
             public ImageSource UserImage { get; set; }
@@ -42,9 +46,22 @@ namespace eShopOnContainers.Core.Views
                 new UserInformation{UserImage = "uc.jpeg"},
                 new UserInformation{UserImage = "dort.jpeg"},
             };
+
+            var collection = firebaseClient
+                .Child("Records")
+                .AsObservable<MyDatabaseRecord>()
+                .Subscribe((dbevent) =>
+                {
+                    if (dbevent.Object != null)
+                    {
+                        DatabaseItemss.Add(dbevent.Object);
+                    }
+                });
         }
 
-       
+
+
+
 
         public List<Product> CollectionsList { get => GetCollections(); }
 
