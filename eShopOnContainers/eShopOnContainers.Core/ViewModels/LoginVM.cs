@@ -108,17 +108,24 @@ namespace eShopOnContainers.Core.ViewModels
 
         private async void Register(object parameter)
         {
-            if(confirmPassword != password)
+            if (confirmPassword != password)
             {
                 App.Current.MainPage.DisplayAlert("Error", "aynı şifre değil", "Ok");
             }
             else
-            await Auth.RegisterUser(Name, Email, Password);
+            {
+                bool result = await Auth.RegisterUser(Name, Email, Password);
+                if (result)
+                    App.Current.MainPage.Navigation.PopAsync();
+            }
+
         }
 
         private async void Login(object parameter)
         {
-            await Auth.AuthenticateUser(Email, Password);
+            bool result = await Auth.AuthenticateUser(Email, Password);
+            if (result)
+                App.Current.MainPage.Navigation.PopAsync();
         }
 
         private bool LoginCanExecute(object parameter)
