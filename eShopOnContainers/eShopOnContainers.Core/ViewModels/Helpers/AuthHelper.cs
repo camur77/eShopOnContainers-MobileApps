@@ -21,12 +21,30 @@ namespace eShopOnContainers.Core.ViewModels.Helpers
 
         public static async Task<bool> RegisterUser(string name, string email, string password)
         {
-              return await auth.RegisterUser(name,email,password);
+            try
+            {
+                return  await auth.RegisterUser(name,email,password);
+            }
+            catch(Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error", ex.Message, "Ok");
+                return false;
+            }
+           
         }
 
     public static async Task<bool> AuthenticateUser( string email, string password)
         {
-              return await auth.AuthenticateUser(email,password);
+            try
+            {
+              return await auth.AuthenticateUser(email, password);
+              
+            }
+            catch(Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("ERROR", ex.Message, "OK");
+                return false;
+            }
         }
 
         public static bool IsAuthenticated()

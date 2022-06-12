@@ -67,6 +67,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Services\ThemeService.cs" />
     <None Include="Entitlements.plist" />
+    <None Include="GoogleService-Info.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />

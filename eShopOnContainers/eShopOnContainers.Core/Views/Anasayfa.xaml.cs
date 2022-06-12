@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Timers;
 using Xamarin.Forms.Xaml;
+using eShopOnContainers.Core.ViewModels.Helpers;
 
 namespace eShopOnContainers.Core.Views
 {
@@ -42,6 +43,9 @@ namespace eShopOnContainers.Core.Views
                 new UserInformation{UserImage = "dort.jpeg"},
             };
         }
+
+       
+
         public List<Product> CollectionsList { get => GetCollections(); }
 
         private List<Product> GetCollections()

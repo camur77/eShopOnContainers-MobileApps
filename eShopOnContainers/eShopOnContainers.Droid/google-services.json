@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "937625568185",
-    "project_id": "oop2-979e0",
-    "storage_bucket": "oop2-979e0.appspot.com"
+    "project_number": "953068307055",
+    "project_id": "projeoop",
+    "storage_bucket": "projeoop.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:937625568185:android:e81e8a89ac46daa8f3ac68",
+        "mobilesdk_app_id": "1:953068307055:android:c39eee7c401a3497e8c39a",
         "android_client_info": {
-          "package_name": "com.lalorosas.eShopOnContainers"
+          "package_name": "com.yourcompany.eShopOnContainers"
         }
       },
       "oauth_client": [
         {
-          "client_id": "937625568185-n7e9l1cqj3m2f8j1t4sr8iu24q0pkaqm.apps.googleusercontent.com",
+          "client_id": "953068307055-pshijd2moqsla1nhqt2je5kfb03a1fde.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDYL8aFmI1-8ovdleUpy-SNR5H53arIa4Y"
+          "current_key": "AIzaSyAu3GdFnlhynF2uVozhoKey6LeOzp6ync0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "937625568185-n7e9l1cqj3m2f8j1t4sr8iu24q0pkaqm.apps.googleusercontent.com",
+              "client_id": "953068307055-pshijd2moqsla1nhqt2je5kfb03a1fde.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "953068307055-cfedbn0dsl0e0u174nppc4ns91ug75se.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yourcompany.eShopOnContainers"
+              }
             }
           ]
         }

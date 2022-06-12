@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-[assembly : Dependency(typeof(Auth)) ]
+[assembly : Dependency(typeof(eShopOnContainers.Droid.Dependencies.Auth)) ]
 namespace eShopOnContainers.Droid.Dependencies
 {
    public class Auth : Iauth

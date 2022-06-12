@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using System.Windows.Input;
 
+using eShopOnContainers.Core.ViewModels.Helpers;
+using Xamarin.Forms;
 
 namespace eShopOnContainers.Core.ViewModels
 {
@@ -20,6 +23,7 @@ namespace eShopOnContainers.Core.ViewModels
             {
                 name = value;
                 OnPropertChanged("Name");
+                OnPropertChanged("CanRegister");
             }
         }
 
@@ -34,6 +38,8 @@ namespace eShopOnContainers.Core.ViewModels
             {
                 email = value;
                 OnPropertChanged("Email");
+                OnPropertChanged("CanLogin");
+                OnPropertChanged("CanRegister");
             }
         }
 
@@ -48,6 +54,8 @@ namespace eShopOnContainers.Core.ViewModels
             {
                 password = value;
                 OnPropertChanged("Password");
+                OnPropertChanged("CanLogin");
+                OnPropertChanged("CanRegister");
             }
         }
 
@@ -62,14 +70,60 @@ namespace eShopOnContainers.Core.ViewModels
             {
                 confirmPassword = value;
                 OnPropertChanged("ConfirmPassword");
+                OnPropertChanged("CanRegister");
             }
         }
+
+        public bool CanLogin
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password) ;
+            }
+        }
+
+        public bool CanRegister
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(ConfirmPassword) && !string.IsNullOrEmpty(Name);
+            }
+        }
+
+        public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public LoginVM()
         {
+            LoginCommand = new Command(Login, LoginCanExecute);
+            RegisterCommand = new Command(Register, RegisterCanExecute);
+        }
 
+        private bool RegisterCanExecute(object parameter)
+        {
+            return CanRegister;
+        }
+
+        private async void Register(object parameter)
+        {
+            if(confirmPassword != password)
+            {
+                App.Current.MainPage.DisplayAlert("Error", "aynı şifre değil", "Ok");
+            }
+            else
+            await Auth.RegisterUser(Name, Email, Password);
+        }
+
+        private async void Login(object parameter)
+        {
+            await Auth.AuthenticateUser(Email, Password);
+        }
+
+        private bool LoginCanExecute(object parameter)
+        {
+            return CanLogin;
         }
 
         private void OnPropertChanged(string propertyName)

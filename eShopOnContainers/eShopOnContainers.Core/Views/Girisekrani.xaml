@@ -14,38 +14,73 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView BindingContext="{StaticResource vm}">
-            <StackLayout>
+        <Grid BindingContext="{StaticResource vm}">
+       
+                <StackLayout x:Name="loginStackLayout" IsVisible="true">
                 <Label></Label>
                 <Label></Label>
                 
                 <Frame BackgroundColor="#191919" BorderColor="Gray" CornerRadius="10" HorizontalOptions="Center" Margin="0,10" HeightRequest="530" WidthRequest="280">
-                    <StackLayout>
+                       <StackLayout >
                         <Label TextColor="White" FontSize="20" HorizontalOptions="Center">Giriş Yapın</Label>
                         <Frame HeightRequest="10" CornerRadius="10" BackgroundColor="#191919" BorderColor="Gray">
-                            <Entry  Margin="10,-17" Placeholder="E-posta adresi" PlaceholderColor="White" BackgroundColor="#191919" Text="{Binding Email, Mode=TwoWay}"></Entry>
+                            <Entry TextColor="White"  Margin="10,-17" Placeholder="E-posta adresi" PlaceholderColor="White" BackgroundColor="#191919" Text="{Binding Email, Mode=TwoWay}"></Entry>
                         </Frame>
                         <Frame HeightRequest="10" CornerRadius="10" BackgroundColor="#191919" BorderColor="Gray">
-                            <Entry Margin="10, -17" Placeholder="Şifre" PlaceholderColor="White" BackgroundColor="#191919" IsPassword="True" Text="{Binding Password, Mode=TwoWay}"></Entry>
+                            <Entry TextColor="White" Margin="10, -17" Placeholder="Şifre" PlaceholderColor="White" BackgroundColor="#191919" IsPassword="True" Text="{Binding Password, Mode=TwoWay}"></Entry>
                         </Frame>
                         <Label HorizontalOptions="Center" TextColor="Gray">Şifremi Unuttum</Label>
-                        <Button CornerRadius="10" VerticalOptions="Center" BackgroundColor="Black" Text="Giriş" Command="{Binding LoginCommand}"/>
+                        <Button CornerRadius="10" VerticalOptions="Center" BackgroundColor="Black" Text="Giriş" Command="{Binding LoginCommand}" CommandParameter="{Binding CanLogin}" />
                         <Label TextColor="White">------------------------------------------------------------------</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="20">Hemen Üye Ol</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="9" >Mediamart.com.tr üyesi olarak tüm kapmanyalarımızdan</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,-7">haberdar olur, üyelere özel indirim fırsatlarımızdan</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,0">faydalanabilirsin</Label>
-                        <Button CornerRadius="10" VerticalOptions="Center" Text="Hemen Üye Ol" BackgroundColor="Green" Command="{Binding LoginCommand}"/>
+                        <Frame BackgroundColor="Green">
+                            <Label TextColor="White" HorizontalOptions="Center">Kayıt Ol
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="RegisterLabel_Tapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            
+                        </Frame>
                         <Label TextColor="White">------------------------------------------------------------------</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="20">CLUB Kartınızı Kaydedin</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="9" >Mediamart CLUB'a mağazalarımızdan üye olduysanız, şifre</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,-7">belirleyerek CLUB avantajlarınızı we sitemiz de</Label>
                         <Label TextColor="White" HorizontalOptions="Center" FontSize="9" Margin="0,0">kullanabilirsiniz</Label>
-                        <Button CornerRadius="10" VerticalOptions="Center" Text="CLUB Kartınızı Kaydedin" BackgroundColor="Red" Command="{Binding LoginCommand}"/>
+                        <Button CornerRadius="10" VerticalOptions="Center" Text="CLUB Kartınızı Kaydedin" BackgroundColor="Red" />
                     </StackLayout>
+                    
                 </Frame>
 
             </StackLayout>
-        </ScrollView>
+          
+            
+                <StackLayout x:Name="registerStackLayout" IsVisible="false" VerticalOptions="Center">
+                <Frame HeightRequest="10" CornerRadius="10" BackgroundColor="#191919" BorderColor="Gray">
+                    <Entry TextColor="White" Margin="10,-17" Placeholder="İsim" PlaceholderColor="White" BackgroundColor="#191919" Text="{Binding Name, Mode=TwoWay}"/>
+                </Frame>
+                <Frame HeightRequest="10" CornerRadius="10" BackgroundColor="#191919" BorderColor="Gray">
+                    <Entry TextColor="White" Margin="10, -17" Placeholder="Email" PlaceholderColor="White" BackgroundColor="#191919"  Text="{Binding Email, Mode=TwoWay}"/>
+                </Frame>
+                <Frame HeightRequest="10" CornerRadius="10" BackgroundColor="#191919" BorderColor="Gray">
+                    <Entry TextColor="White" Margin="10, -17" Placeholder="Şifre" PlaceholderColor="White" BackgroundColor="#191919" IsPassword="True" Text="{Binding Password, Mode=TwoWay}"/>
+                </Frame>
+                <Frame HeightRequest="10" CornerRadius="10" BackgroundColor="#191919" BorderColor="Gray">
+                    <Entry TextColor="White" Margin="10, -17" Placeholder="Tekrar Şifre" PlaceholderColor="White" BackgroundColor="#191919" IsPassword="True" Text="{Binding ConfirmPassword, Mode=TwoWay}" />
+                </Frame>
+                <Button CornerRadius="10" VerticalOptions="Center" Text="Kayıt Ol" BackgroundColor="Red" Command="{Binding RegisterCommand}" CommandParameter="{Binding CanRegister}" />
+                <StackLayout Orientation="Horizontal">
+                    <Label TextColor="White">Zaten Hesabınız Var mı?</Label>
+                    <Label TextColor="Green">Login
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="LoginLabel_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
