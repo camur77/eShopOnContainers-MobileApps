@@ -19,6 +19,7 @@ namespace eShopOnContainers.Core.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class beyaz : ContentPage
     {
+        VMProducts vmProduct;
         public beyaz()
         {
             vmProduct = new VMProducts();
@@ -54,15 +55,6 @@ namespace eShopOnContainers.Core.Views
             {
             }
             lstProducts.SelectedItem = null;
-        }
-
-        private async void telefonbir(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new telefonbir1());
-        }
-        private async void telefoniki(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new telefoniki2());
         }
         private async void telefonbir(object sender, EventArgs e)
         {
