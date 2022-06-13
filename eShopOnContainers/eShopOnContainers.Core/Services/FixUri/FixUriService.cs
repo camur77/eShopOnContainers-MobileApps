@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using eShopOnContainers.Core.Services.Settings;
+using eShopOnContainers.Core.Models.Anasayfa;
 
 namespace eShopOnContainers.Core.Services.FixUri
 {
@@ -117,6 +118,11 @@ namespace eShopOnContainers.Core.Services.FixUri
             {
                 Debug.WriteLine(ex.Message);
             }
+        }
+
+        public void FixCatalogItemPictureUri(List<AnasayfaItem> data)
+        {
+            throw new NotImplementedException();
         }
     }
 }
