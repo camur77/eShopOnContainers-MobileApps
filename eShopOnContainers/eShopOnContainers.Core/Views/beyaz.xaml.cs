@@ -20,6 +20,7 @@ namespace eShopOnContainers.Core.Views
     public partial class beyaz : ContentPage
     {
         VMProducts vmProduct;
+
         public beyaz()
         {
             vmProduct = new VMProducts();
