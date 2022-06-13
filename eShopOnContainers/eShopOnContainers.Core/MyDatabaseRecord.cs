@@ -7,6 +7,6 @@ namespace eShopOnContainers.Core
     public class MyDatabaseRecord
     {
         public string MyProperty { get; set; }
-        
+        public string Name { get; set; }
     }
 }

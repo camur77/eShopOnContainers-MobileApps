@@ -1,34 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using System.Timers;
-using Xamarin.Forms.Xaml;
-using eShopOnContainers.Core.ViewModels.Helpers;
-using Firebase.Database;
-using Firebase.Database.Query;
 using eShopOnContainers.Core.Models;
 using eShopOnContainers.Core.ViewModels;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace eShopOnContainers.Core.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Telefon : ContentPage
+    public partial class AddProducts : ContentPage
     {
         VMProducts vmProduct;
-
-        public Telefon()
+        public AddProducts()
         {
+
+            InitializeComponent();
             vmProduct = new VMProducts();
             this.BindingContext = vmProduct;
-            //this.BindingContext = this;
-            InitializeComponent();
         }
-
         private async void lstProducts_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             try
@@ -57,14 +50,5 @@ namespace eShopOnContainers.Core.Views
             }
             lstProducts.SelectedItem = null;
         }
-
-        private async void telefonbir(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new telefonbir1());
         }
-        private async void telefoniki(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new telefoniki2());
-        }
-    }
 }

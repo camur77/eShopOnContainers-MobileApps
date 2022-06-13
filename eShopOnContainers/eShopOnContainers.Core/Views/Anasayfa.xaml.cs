@@ -10,15 +10,45 @@ using System.Timers;
 using Xamarin.Forms.Xaml;
 using eShopOnContainers.Core.ViewModels.Helpers;
 using Firebase.Database;
+using Firebase.Database.Query;
+using eShopOnContainers.Core.Models;
+using eShopOnContainers.Core.ViewModels;
 
 namespace eShopOnContainers.Core.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Anasayfa : ContentPage
     {
-        public ObservableCollection<MyDatabaseRecord> DatabaseItemss { get; set; } = new ObservableCollection<MyDatabaseRecord>();
 
-        private readonly FirebaseClient firebaseClient = new FirebaseClient("https://projeoop-default-rtdb.firebaseio.com");
+        VMProducts vmProduct;
+
+        //public ObservableCollection<MyDatabaseRecord> DatabaseItems { get; set; } = new ObservableCollection<MyDatabaseRecord>();
+
+        //public FirebaseClient firebaseClient = new FirebaseClient("https://projeoop-default-rtdb.firebaseio.com/");
+        //FirebaseClient firebase = new FirebaseClient("https://projeoop-default-rtdb.firebaseio.com/");
+
+        /* public async Task<List<MyDatabaseRecord>> GetAllPersons()
+         {
+
+             return (await firebase
+               .Child("Records")
+               .OnceAsync<MyDatabaseRecord>()).Select(item => new MyDatabaseRecord
+               {
+                   Name = item.Object.Name,
+                   MyProperty = item.Object.MyProperty
+               }).ToList();
+         }
+
+         protected async override void OnAppearing()
+         {
+
+             base.OnAppearing();
+             var allPersons = await GetAllPersons();
+             lstPersons.ItemsSource = allPersons;
+         }*/
+
+
+
         public class UserInformation
         {
             public ImageSource UserImage { get; set; }
@@ -38,6 +68,8 @@ namespace eShopOnContainers.Core.Views
         public Anasayfa()
         {
             InitializeComponent();
+            //vmProduct = new VMProducts();
+            this.BindingContext = vmProduct;
             this.BindingContext = this;
             UserCollection = new ObservableCollection<UserInformation>
             {
@@ -47,17 +79,46 @@ namespace eShopOnContainers.Core.Views
                 new UserInformation{UserImage = "dort.jpeg"},
             };
 
-            var collection = firebaseClient
+            /*var collection = firebaseClient
                 .Child("Records")
                 .AsObservable<MyDatabaseRecord>()
                 .Subscribe((dbevent) =>
                 {
                     if (dbevent.Object != null)
                     {
-                        DatabaseItemss.Add(dbevent.Object);
+                        DatabaseItems.Add(dbevent.Object);
                     }
-                });
+                });*/
         }
+
+        /*private async void lstProducts_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            try
+            {
+                if (lstProducts.SelectedItem != null)
+                {
+                    Products product = (Products)e.SelectedItem;
+                    if (product != null)
+                    {
+                        var display = await DisplayActionSheet(product.productName, "Cancel",
+                        null, new string[] { "Edit", "Delete" });
+                        if (display.Equals("Edit"))
+                        {
+                            vmProduct.setProduct(product);
+                        }
+                        else if (display.Equals("Delete"))
+                        {
+                            vmProduct.setProduct(product);
+                            await vmProduct.trnProducts("DELETE");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            lstProducts.SelectedItem = null;
+        }*/
 
 
 
