@@ -16,10 +16,11 @@ using eShopOnContainers.Core.ViewModels;
 
 namespace eShopOnContainers.Core.Views
 {
-    VMProducts vmProduct;
+    
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TV : ContentPage
     {
+        VMProducts vmProduct;
         public TV()
         {
             vmProduct = new VMProducts();

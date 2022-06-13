@@ -215,9 +215,16 @@ if (connectFirebase())
 var lst = (await fClient.Child(productResource).OnceAsync<Products>()).Select(x =>
 new Products
 {
-productId = x.Object.productId,
-productName = x.Object.productName,
-productPrice = x.Object.productPrice,
+    productId = x.Object.productId,
+    productName = x.Object.productName,
+    productPrice = x.Object.productPrice,
+    productImage = x.Object.productImage,
+    productBeyaz = x.Object.productBeyaz,
+    productBeyazFiyat = x.Object.productBeyazFiyat,
+    productBeyazImage = x.Object.productBeyazImage,
+    productTV = x.Object.productTV,
+    productTVFiyat = x.Object.productTVFiyat,
+    productTVImage = x.Object.productTVImage,
 }).ToList();
 
 lstProducts = new ObservableCollection<Products>(lst);
