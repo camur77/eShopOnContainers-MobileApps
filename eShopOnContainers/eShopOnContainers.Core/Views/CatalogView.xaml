@@ -10,9 +10,13 @@
     xmlns:viewmodels="clr-namespace:eShopOnContainers.Core.ViewModels"
     xmlns:views="clr-namespace:eShopOnContainers.Core.Views;assembly=eShopOnContainers.Core"
     xmlns:xtc="http://xamarin.com/schemas/2020/toolkit"
-    Title="CATALOG"
+    Title="Bilgisayarlar"
     viewModelBase:ViewModelLocator.AutoWireViewModel="true"
-    x:DataType="viewmodels:CatalogViewModel">
+    x:DataType="viewmodels:CatalogViewModel"
+    Shell.BackgroundColor="#191919"
+             Shell.ForegroundColor="White"
+             BackgroundColor="#191919"
+              Shell.TitleColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
 
@@ -20,10 +24,12 @@
                 <Setter Property="RowHeight" Value="400" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Margin" Value="0" />
+                
+                
             </Style>
 
             <Style x:Key="FilterLabelStyle" TargetType="{x:Type Label}">
-                <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
@@ -44,9 +50,7 @@
             <triggers:BeginAnimation Animation="{StaticResource ProductsAnimation}" />
         </EventTrigger>
     </ContentPage.Triggers>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="{DynamicResource FilterIconForTitleImageSource}" Clicked="OnFilterChanged" />
-    </ContentPage.ToolbarItems>
+    
     
     
     <Grid ColumnSpacing="0" RowSpacing="0">
@@ -63,12 +67,10 @@
             IsVisible="{Binding Products, Converter={StaticResource ListIsNotNullOrEmptyConverter}}"
             ItemsSource="{Binding Products}"
             SeparatorVisibility="None"
-            Style="{StaticResource ProductsListStyle}">
+            Style="{StaticResource ProductsListStyle}"
+            >
             <ListView.Behaviors>
-                <xtc:EventToCommandBehavior
-                    Command="{Binding AddCatalogItemCommand}"
-                    EventArgsConverter="{StaticResource ItemTappedEventArgsConverter}"
-                    EventName="ItemTapped" />
+                
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -78,41 +80,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--  INDICATOR  -->
-        <ActivityIndicator
-            HorizontalOptions="Center"
-            IsRunning="{Binding IsBusy}"
-            IsVisible="{Binding IsBusy}"
-            VerticalOptions="Center"
-            Color="{StaticResource LightGreenColor}">
-            <ActivityIndicator.WidthRequest>
-                <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="iOS, Android" Value="100" />
-                    <On Platform="UWP, WinRT, WinPhone" Value="400" />
-                </OnPlatform>
-            </ActivityIndicator.WidthRequest>
-        </ActivityIndicator>
-
-        <xtc:BadgeView
-            x:Name="ShoppingCart"
-            BackgroundColor="{AppThemeBinding Light={StaticResource DarkBackgroundColor}, Dark={StaticResource LightBackgroundColor}}"
-            TextColor="{AppThemeBinding Light={StaticResource DarkForegroundColor}, Dark={StaticResource LightForegroundColor}}"
-            BadgePosition="TopRight"
-            AutoHide="True"
-            FontSize="Micro"
-            Text="{Binding BadgeCount, Mode=OneWay}"
-            Padding="16,0"
-            Margin="0,0,16,16"
-            HorizontalOptions="End"
-            VerticalOptions="End">
-            <ImageButton
-                Source="{DynamicResource BasketIconForTitleImageSource}"
-                Command="{Binding ViewBasketCommand}"
-                BackgroundColor="{StaticResource LightGreenColor}"
-                Padding="16"
-                CornerRadius="8"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-        </xtc:BadgeView>
+        
+       
     </Grid>
 </views:ContentPageBase>

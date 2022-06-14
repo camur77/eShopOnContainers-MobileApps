@@ -32,5 +32,9 @@ namespace eShopOnContainers.Core.Views
         {
             await Navigation.PushAsync(new beyaz());
         }
+        private async void deneme4(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CatalogView());
+        }
     }
 }

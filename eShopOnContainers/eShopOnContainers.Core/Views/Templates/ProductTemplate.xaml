@@ -12,6 +12,7 @@
                 <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Margin" Value="0, 12, 0, 6" />
+                <Setter Property="TextColor" Value="White"/>
             </Style>
 
             <Style x:Key="ProductPriceStyle" TargetType="{x:Type Label}">
@@ -20,6 +21,7 @@
                 <Setter Property="FontSize" Value="{StaticResource BigSize}" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="Margin" Value="0, 6, 0, 12" />
+                <Setter Property="TextColor" Value="White"/>
             </Style>
 
             <Style x:Key="AddButtonStyle" TargetType="{x:Type Grid}">
@@ -28,6 +30,7 @@
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="End" />
                 <Setter Property="Margin" Value="0,0,0,24" />
+                <Setter Property="IsVisible" Value="False"/>
             </Style>
 
             <Style x:Key="AddImageStyle" TargetType="{x:Type Image}">
@@ -50,12 +53,7 @@
                 Aspect="AspectFill"
                 Source="{Binding PictureUri, TargetNullValue='default_product.png'}" />
 
-            <Grid
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Style="{StaticResource AddButtonStyle}">
-                <controls:AddBasketButton />
-            </Grid>
+            
             <!--  NAME  -->
             <Label
                 Grid.Row="1"

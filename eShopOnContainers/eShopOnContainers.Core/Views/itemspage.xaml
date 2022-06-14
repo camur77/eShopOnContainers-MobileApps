@@ -23,7 +23,7 @@
                 <Label TextColor="White" Margin="0,-3" HorizontalOptions="Center">--------------------------------------------------------------------------------------------------</Label>
                 <Button Clicked="deneme1" BackgroundColor="#191919" TextColor="White" Margin="10,-8" FontSize="15" Text="Telefon"></Button>
                 <Label TextColor="White" HorizontalOptions="Center">--------------------------------------------------------------------------------------------------</Label>
-                <Button BackgroundColor="#191919" TextColor="White" Margin="10,-8" FontSize="15" Text="Bilgisayar"></Button>
+                <Button Clicked="deneme4" BackgroundColor="#191919" TextColor="White" Margin="10,-8" FontSize="15" Text="Bilgisayar"></Button>
                 <Label TextColor="White" HorizontalOptions="Center">--------------------------------------------------------------------------------------------------</Label>
                 <Button Clicked="deneme2" BackgroundColor="#191919" TextColor="White" Margin="10,-8" FontSize="15" Text="Tv, Görüntü Ve Ses"></Button>
                 <Label TextColor="White" HorizontalOptions="Center">--------------------------------------------------------------------------------------------------</Label>

@@ -25,7 +25,7 @@ namespace eShopOnContainers
 
             InitApp();
 
-            MainPage = new deneme3131();
+            MainPage = new AppShell();
         }
 
         private void InitApp()
