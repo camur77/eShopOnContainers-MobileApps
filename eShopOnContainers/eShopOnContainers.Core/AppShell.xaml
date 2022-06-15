@@ -27,9 +27,7 @@
         <BackButtonBehavior TextOverride="" />
     </Shell.BackButtonBehavior>
 
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent ContentTemplate="{DataTemplate views:LoginView}" Route="Login" />
-    </FlyoutItem>
+    
 
     <TabBar Route="Main">
         <ShellContent Title="Anasayfa" Route="Catalog" Icon="{StaticResource CatalogIconImageSource}" ContentTemplate="{DataTemplate views:Anasayfa}" />
