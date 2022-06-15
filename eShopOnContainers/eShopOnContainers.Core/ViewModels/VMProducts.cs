@@ -13,251 +13,315 @@ using eShopOnContainers.Core.Models;
 namespace eShopOnContainers.Core.ViewModels
 {
     public class VMProducts : INotifyPropertyChanged
-{
-FirebaseClient fClient;
+    {
+        FirebaseClient fClient;
 
-private Products _product { get; set; }
+        private Products _product { get; set; }
 
-public Products product
-{
-get { return _product; }
-set
-{
-_product = value;
-OnPropertyChanged();
-}
-}
+        public Products product
+        {
+             get { return _product; }
+             set
+             {
+                 _product = value;
+                 OnPropertyChanged();
+             }
+        }
 
-private bool _showButton { get; set; }
-public bool showButton
-{
-get { return _showButton; }
-set
-{
-_showButton = value;
-OnPropertyChanged();
-}
-}
-private bool _isBusy { get; set; }
-public bool isBusy
-{
-get { return _isBusy; }
-set
-{
-_isBusy = value;
-OnPropertyChanged();
-showButton = !value;
-}
-}
+        private bool _showButton { get; set; }
+        public bool showButton
+        {
+             get { return _showButton; }
+             set
+             {
+                 _showButton = value;
+                 OnPropertyChanged();
+             }
+        }
+        private bool _isBusy { get; set; }
+        public bool isBusy
+        {
+             get { return _isBusy; }
+             set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+                showButton = !value;
+             }
+        }
 
-private ICommand _btnSaveProduct { get; set; }
-public ICommand btnSaveProduct
-{
-get { return _btnSaveProduct; }
-set
-{
-_btnSaveProduct = value;
-OnPropertyChanged();
-}
-}
+        private ICommand _btnSaveProduct { get; set; }
+        public ICommand btnSaveProduct
+        {
+             get { return _btnSaveProduct; }
+             set
+             {
+                  _btnSaveProduct = value;
+                   OnPropertyChanged();
+             }
+        }
 
-private string _lblMessage { get; set; }
-public string lblMessage
-{
-get { return _lblMessage; }
-set
-{
-_lblMessage = value;
-OnPropertyChanged();
-}
-}
+         private string _lblMessage { get; set; }
+         public string lblMessage
+         {
+             get { return _lblMessage; }
+             set
+             {
+                 _lblMessage = value;
+                 OnPropertyChanged();
+             }
+         }
 
-private ObservableCollection<Products> _lstProducts { get; set; }
+         private ObservableCollection<Products> _lstProducts { get; set; }
 
-public ObservableCollection<Products> lstProducts
-{
-get { return _lstProducts; }
-set
-{
-_lstProducts = value;
-OnPropertyChanged();
-}
-}
+        public ObservableCollection<Products> lstProducts
+        {
+             get { return _lstProducts; }
+             set
+             {
+                 _lstProducts = value;
+                 OnPropertyChanged();
+             }
+        }
 
-private string _btnSaveText { get; set; }
-public string btnSaveText
-{
-get { return _btnSaveText; }
-set
-{
-_btnSaveText = value;
-OnPropertyChanged();
-}
-}
+        private string _btnSaveText { get; set; }
+        public string btnSaveText
+        {
+            get { return _btnSaveText; }
+            set
+            {
+                _btnSaveText = value;
+                OnPropertyChanged();
+            }
+        }
 
-readonly string productResource = "Products";
-public VMProducts()
-{
-try
-{
-lstProducts = new ObservableCollection<Products>();
-btnSaveProduct = new Command(async () =>
-{
-isBusy = true;
-await trnProducts("ADD");
-});
-var callList = new Command(async () => await GetAllProducts());
-callList.Execute(null);
+        readonly string productResource = "Products";
+        public VMProducts()
+        {
+             try
+             {
+                  lstProducts = new ObservableCollection<Products>();
+                  btnSaveProduct = new Command(async () =>
+                  {
+                     isBusy = true;
+                     await trnProducts("ADD");
+        });
+       
+                var callList = new Command(async () => await GetAllProducts());
 
-}
-catch (Exception ex)
-{
-lblMessage = "Error occurred " + ex.Message.ToString();
-}
-}
+ 
+                callList.Execute(null);
 
-public bool connectFirebase()
-{
-try
-{
-if (fClient == null)
-fClient = new FirebaseClient("https://projeoop-default-rtdb.firebaseio.com/");
-return true;
-}
-catch (Exception ex)
-{
-lblMessage = "Error occurred in connecting firebase. Error:" + ex.Message.ToString();
-return false;
-}
+ 
+             }
+             catch (Exception ex)
+             {
+ 
+                lblMessage = "Error occurred " + ex.Message.ToString();
+ 
+             }
+ 
+        }
 
-}
+ 
+        public bool connectFirebase()
+         { 
+            try
+             {
+ 
+                if (fClient == null)
+ 
+                    fClient = new FirebaseClient("https://projeoop-default-rtdb.firebaseio.com/");
+ 
+                return true;
+ 
+            } 
+            catch (Exception ex)
+             {
+ 
+                lblMessage = "Error occurred in connecting firebase. Error:" + ex.Message.ToString();
+ 
+                return false;
+             }
+        }
 
-public async Task trnProducts(string action)
-{
-try
-{
-if (product == null || String.IsNullOrWhiteSpace(product.productName) || product.productPrice == null)
-{
-lblMessage = "Please enter product details to save product";
-isBusy = false;
-return;
-}
+ 
+        public async Task trnProducts(string action)
+         { 
+            try
+             { 
+                if (product == null || String.IsNullOrWhiteSpace(product.productName) || product.productPrice == null)
+                 {
+ 
+                    lblMessage = "Please enter product details to save product";
+ 
+                    isBusy = false;
+ 
+                    return;
+                 }
 
-if (connectFirebase())
-{
-Products products = new Products();
-products.productName = product.productName;
-products.productPrice = product.productPrice;
-if (btnSaveText == "SAVE" && action.Equals("ADD"))
-{
-products.productId = Guid.NewGuid();
+ 
+                if (connectFirebase())
+                 {
+ 
+                    Products products = new Products();
+ 
+                    products.productName = product.productName;
+ 
+                    products.productPrice = product.productPrice;
+ 
+                    if (btnSaveText == "SAVE" && action.Equals("ADD"))
+                     {
+ 
+                        products.productId = Guid.NewGuid();
 
-await fClient.Child(productResource).PostAsync(JsonConvert.SerializeObject(products));
-await GetAllProducts();
-lblMessage = "Product saved successfully";
-}
-else if (btnSaveText == "UPDATE" && action.Equals("ADD"))
-{
-products.productId = product.productId;
+ 
+                        await fClient.Child(productResource).PostAsync(JsonConvert.SerializeObject(products));
+ 
+                        await GetAllProducts();
+ 
+                        lblMessage = "Product saved successfully";
+ 
+                    }
+                     else if (btnSaveText == "UPDATE" && action.Equals("ADD"))
+                    {
+ 
+                        products.productId = product.productId;
 
-var updateProduct = (await fClient.Child(productResource).OnceAsync<Products>()).FirstOrDefault(x => x.Object.productId == products.productId);
+ 
+                        var updateProduct = (await fClient.Child(productResource).OnceAsync<Products>()).FirstOrDefault(x => x.Object.productId == products.productId);
 
-if (updateProduct == null)
-{
-lblMessage = "Cannot find selected Product";
-isBusy = false;
-return;
-}
-await fClient
-.Child(productResource + "/" + updateProduct.Key).PatchAsync(JsonConvert.SerializeObject(products));
-await GetAllProducts();
-lblMessage = "Product updated successfully";
-}
-else if (action.Equals("DELETE"))
-{
-var deleteProduct = (await fClient
-.Child(productResource)
-.OnceAsync<Products>()).FirstOrDefault(d => d.Object.productId == product.productId);
+ 
+                        if (updateProduct == null)
+                        {
+ 
+                            lblMessage = "Cannot find selected Product";
+ 
+                            isBusy = false;
+ 
+                            return;
+                         }
+ 
+                        await fClient
+                             .Child(productResource + "/" + updateProduct.Key).PatchAsync(JsonConvert.SerializeObject(products));
+                        await GetAllProducts();
+ 
+                        lblMessage = "Product updated successfully";
+ 
+                    } 
+                    else if (action.Equals("DELETE"))
+                    {
+ 
+                        var deleteProduct = (await fClient
+ 
+                            .Child(productResource)
+ 
+                            .OnceAsync<Products>()).FirstOrDefault(d => d.Object.productId == product.productId);
 
-if (deleteProduct == null)
-{
-lblMessage = "Cannot find selected Product";
-isBusy = false;
-return;
-}
+ 
+                        if (deleteProduct == null)
+                         {
+ 
+                            lblMessage = "Cannot find selected Product";
+ 
+                            isBusy = false;
+ 
+                            return;
+                         }
+                        await fClient
+                          .Child(productResource + "/" + deleteProduct.Key).DeleteAsync();
+                           await GetAllProducts();
+                         lblMessage = "Product delete successfully"; 
+                    }
+                 }
+            }
+             catch (Exception ex)
+            {
+                 lblMessage = "Error occurred. Cannot save Product. Error:" + ex.Message.ToString();
+            }
+             isBusy = false;
+        }
 
-await fClient
-.Child(productResource + "/" + deleteProduct.Key).DeleteAsync();
+         public async Task GetAllProducts()
+         {
+             Clear();
+             isBusy = true;
+             try
+             {
+                 lstProducts = new ObservableCollection<Products>();
+                 if (connectFirebase()) 
+                 {
+                     var lst = (await fClient.Child(productResource).OnceAsync<Products>()).Select(x =>
+                     new Products
+                     {
+    
+                        productId = x.Object.productId,
+   
+                        productName = x.Object.productName,
+    
+                        productPrice = x.Object.productPrice,
+    
+                        productImage = x.Object.productImage,
+    
+                        productBeyaz = x.Object.productBeyaz,
+    
+                        productBeyazFiyat = x.Object.productBeyazFiyat,
+    
+                        productBeyazImage = x.Object.productBeyazImage,
+   
+                        productTV = x.Object.productTV,
+    
+                        productTVFiyat = x.Object.productTVFiyat,
+    
+                        productTVImage = x.Object.productTVImage,
+                     }).ToList();
 
-await GetAllProducts();
-lblMessage = "Product delete successfully";
-}
+                     lstProducts = new ObservableCollection<Products>(lst);
+                 }
+             }
+             catch (Exception ex)
+             {
+                 lblMessage = "Error occurred in getting products. Error:" + ex.Message.ToString();
+             }
+             isBusy = false;
+         }
 
-}
-}
-catch (Exception ex)
-{
-lblMessage = "Error occurred. Cannot save Product. Error:" + ex.Message.ToString();
+ 
+        public void setProduct(Products edt)
+         {
+ 
+            product = new Products();
+ 
+            product.productName = edt.productName;
+ 
+            product.productPrice = edt.productPrice;
+ 
+            btnSaveText = "UPDATE";
+ 
+            product.productId = edt.productId;
+         }
 
-}
-isBusy = false;
-}
+ 
+        public void Clear()
+         {
+ 
+            product = new Products();
+ 
+            product.productName = "";
+ 
+            product.productPrice = null;
+ 
+            isBusy = false;
+ 
+            product.productId = Guid.Empty;
+ 
+            btnSaveText = "SAVE";
+ 
+            lblMessage = "";
+         }
 
-public async Task GetAllProducts()
-{
-Clear();
-isBusy = true;
-try
-{
-lstProducts = new ObservableCollection<Products>();
-if (connectFirebase())
-{
-var lst = (await fClient.Child(productResource).OnceAsync<Products>()).Select(x =>
-new Products
-{
-    productId = x.Object.productId,
-    productName = x.Object.productName,
-    productPrice = x.Object.productPrice,
-    productImage = x.Object.productImage,
-    productBeyaz = x.Object.productBeyaz,
-    productBeyazFiyat = x.Object.productBeyazFiyat,
-    productBeyazImage = x.Object.productBeyazImage,
-    productTV = x.Object.productTV,
-    productTVFiyat = x.Object.productTVFiyat,
-    productTVImage = x.Object.productTVImage,
-}).ToList();
-
-lstProducts = new ObservableCollection<Products>(lst);
-}
-}
-catch (Exception ex)
-{
-lblMessage = "Error occurred in getting products. Error:" + ex.Message.ToString();
-}
-isBusy = false;
-}
-
-public void setProduct(Products edt)
-{
-product = new Products();
-product.productName = edt.productName;
-product.productPrice = edt.productPrice;
-btnSaveText = "UPDATE";
-product.productId = edt.productId;
-}
-
-public void Clear()
-{
-product = new Products();
-product.productName = "";
-product.productPrice = null;
-isBusy = false;
-product.productId = Guid.Empty;
-btnSaveText = "SAVE";
-lblMessage = "";
-}
-
-#region INotifyPropertyChanged
+ 
+        #region INotifyPropertyChanged
 public event PropertyChangedEventHandler PropertyChanged;
 protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
 {
@@ -268,5 +332,7 @@ return;
 changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }
 #endregion
-}
+ 
+    }
+ 
 }
